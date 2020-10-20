@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class CategoriaController extends Controller
 {
     //
     function index() {
-      $fulano = "Usuário";
-      return view("categoria")->with('fulano', $fulano);
-    }
-
-    function edit() {
-      echo "Editando categoria";
+      $categorias = Categoria::all();
+      return view("categoria.listagem")->with('categorias', $categorias);
     }
 }
