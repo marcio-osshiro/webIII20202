@@ -16,29 +16,19 @@
     <title>Categoria</title>
   </head>
   <body>
-    <h1>Categoria</h1>
-    <a class="btn btn-primary" href="categoria/novo">Novo</a>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Descrição</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($categorias as $categoria)
-          <tr>
-            <th scope='row'>{{ $categoria['id'] }}</th>
-            <td>{{ $categoria['descricao'] }}</td>
-            <td>
-              <a class='btn btn-success' href='categoria/editar/{{$categoria['id']}}'>Editar</a>
-              <a class='btn btn-danger' href='categoria/excluir/{{$categoria['id']}}'>Excluir</a>
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
+    <form action="{{ route('categoria_salvar') }}" method="POST">
+      @csrf
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input readonly type="text" class="form-control" id="id" name="id" value="{{ $categoria['id'] }}" >
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text" class="form-control" id="descricao" name="descricao" value="{{ $categoria['descricao'] }}">
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

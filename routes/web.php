@@ -17,4 +17,9 @@ use App\Http\Controllers\CategoriaController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/categoria', [CategoriaController::class, 'index']);
+
+Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria_lista');
+Route::get('/categoria/novo', [CategoriaController::class, 'novo']);
+Route::get('/categoria/editar/{id}', [CategoriaController::class, 'editar']);
+Route::post('/categoria/salvar', [CategoriaController::class, 'salvar'])->name('categoria_salvar');;
+Route::get('/categoria/excluir/{id}', [CategoriaController::class, 'excluir']);
