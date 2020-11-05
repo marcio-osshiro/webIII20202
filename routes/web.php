@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\IndexController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,8 @@ use App\Http\Controllers\NoticiaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [IndexController::class, 'index'])->name('inicio');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria_lista');
 Route::get('/categoria/novo', [CategoriaController::class, 'novo']);
