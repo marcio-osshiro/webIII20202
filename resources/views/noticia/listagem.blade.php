@@ -22,12 +22,12 @@
           <th scope='row'>{{ $noticia['id'] }}</th>
           <td>
             @if($noticia['imagem'] != "")
-              <img style="width: 100px;" src="/imagens/{{ $noticia['imagem'] }}">
+              <img style="width: 50px;" src="/imagens/{{ $noticia['imagem'] }}">
             @endif
           </td>
           <td>{{ $noticia['titulo'] }}</td>
           <td>{{ $noticia['descricao'] }}</td>
-          <td>{{ $noticia['data'] }}</td>
+          <td>{{ $noticia['data']->format('d/m/Y') }}</td>
           <td>{{ $noticia['cidade'] }}</td>
           <td>{{ $noticia['categoria']->descricao }}</td>
           <td>
