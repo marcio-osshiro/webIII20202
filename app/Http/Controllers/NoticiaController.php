@@ -11,6 +11,10 @@ use App\Http\Requests\NoticiaRequest;
 
 class NoticiaController extends Controller
 {
+  function __construct() {
+    $this->middleware('auth');
+  }
+  
   function index() {
     $noticias = Noticia::orderBy("id")->get();
     return view("noticia.listagem", compact('noticias'));

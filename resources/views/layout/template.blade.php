@@ -58,12 +58,30 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+      @if(Route::has('login'))
+      @auth
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('categoria_lista') }}">Categoria</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('noticia_lista') }}">Notícia</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+      </li>
+      @else
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ route('login') }}">Entrar</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+      </li>
+
+      @endauth
+      @endif
     </ul>
   </div>
 </nav>

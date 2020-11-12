@@ -31,3 +31,7 @@ Route::get('/noticia/novo', [NoticiaController::class, 'novo']);
 Route::get('/noticia/editar/{id}', [NoticiaController::class, 'editar']);
 Route::post('/noticia/salvar', [NoticiaController::class, 'salvar'])->name('noticia_salvar');;
 Route::get('/noticia/excluir/{id}', [NoticiaController::class, 'excluir']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
+    return view("index");
+});
