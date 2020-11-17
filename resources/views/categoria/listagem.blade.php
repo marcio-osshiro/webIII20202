@@ -1,6 +1,12 @@
 @extends('layout.template')
 
 @section('content')
+  @if(session('mensagem'))
+    <div class="alert {{ session('mensagem')['tipo'] }}">
+      {{ session('mensagem')['descricao'] }}
+    </div>
+  @endif
+
   <h1>Categoria</h1>
   <a class="btn btn-primary" href="categoria/novo">Novo</a>
   <table class="table table-striped table-bordered">

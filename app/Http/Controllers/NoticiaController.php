@@ -14,9 +14,9 @@ class NoticiaController extends Controller
   function __construct() {
     $this->middleware('auth');
   }
-  
+
   function index() {
-    $noticias = Noticia::orderBy("id")->get();
+    $noticias = Noticia::orderBy("id")->paginate(4);
     return view("noticia.listagem", compact('noticias'));
   }
 

@@ -36,12 +36,22 @@ class CategoriaController extends Controller
       }
       $categoria->descricao = $request->input("descricao");
       $categoria->save();
-      return redirect()->route("categoria_lista");
+
+      $mensagem['descricao'] = "Categoria {$categoria->descricao} foi salva";
+      $mensagem['tipo'] = "alert-success";
+
+      return redirect()
+        ->route("categoria_lista")
+        ->with(compact('mensagem'));
     }
 
     function excluir($id) {
       $categoria = Categoria::find($id);
+      $mensagem['descricao'] = "Categoria {$categoria->descricao} foi excluida";
+      $mensagem['tipo'] = "alert-danger";
       $categoria->delete();
-      return redirect()->route("categoria_lista");
+      return redirect()
+        ->route("categoria_lista")
+        ->with(compact('mensagem'));
     }
 }
