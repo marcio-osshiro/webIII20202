@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\IndexController;
-
+use App\Http\Controllers\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +35,6 @@ Route::get('/noticia/excluir/{id}', [NoticiaController::class, 'excluir']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
     return view("index");
 });
+
+
+Route::get('/news', [NewsController::class, 'news'])->name('news');
