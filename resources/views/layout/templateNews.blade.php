@@ -41,17 +41,17 @@
       }
 
       body {
-        padding-top: 5rem;
+        padding-top: 3rem;
       }
       .starter-template {
-        padding: 3rem 1.5rem;
+        padding: 1rem 1.5rem;
       }
     </style>
     <!-- Custom styles for this template -->
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Inicio</a>
+  <a class="navbar-brand" href="{{route('news')}}">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -60,7 +60,7 @@
     <ul class="navbar-nav mr-auto">
         @foreach($categorias as $categoria)
         <li class="nav-item active">
-          <a class="nav-link" href="#">{{ $categoria->descricao }}</a>
+          <a class="nav-link" href="{{route('newsCategory', $categoria->id)}}">{{ $categoria->descricao }}</a>
         </li>
         @endforeach
     </ul>

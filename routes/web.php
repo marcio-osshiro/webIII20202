@@ -38,3 +38,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
 
 
 Route::get('/news', [NewsController::class, 'news'])->name('news');
+Route::get('/news/{categoria_id}/{noticia_id?}', [NewsController::class, 'newsCategory'])->name('newsCategory');
