@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\VendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
 
 Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/{categoria_id}/{noticia_id?}', [NewsController::class, 'newsCategory'])->name('newsCategory');
+
+Route::get('/venda/novo', [VendaController::class, 'novo']);

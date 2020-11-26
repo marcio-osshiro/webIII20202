@@ -53,7 +53,7 @@
     <div class="row">
       @foreach($categoria->ultimasNoticias() as $ultimaNoticia)
       <div class="col-4">
-        <a href="#" class="card">
+        <a href="{{route('newsCategory', [$ultimaNoticia->categoria->id, $ultimaNoticia->id])}}" class="card">
           <img class="card-img-top" src="/imagens/{{ $ultimaNoticia['imagem'] }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{$ultimaNoticia->titulo}}</h5>
