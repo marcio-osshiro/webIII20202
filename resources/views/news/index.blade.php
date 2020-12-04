@@ -20,7 +20,7 @@
 @section('content')
 <div class="container container1">
   <h1 class="text-center">Últimas Notícias</h1>
-  <div id="ultimas-noticias" class="carousel slide w-50 m-auto" data-ride="carousel">
+  <div id="ultimas-noticias" class="carousel slide w-100 m-auto" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#ultimas-noticias" data-slide-to="0" class="active"></li>
       <li data-target="#ultimas-noticias" data-slide-to="1"></li>
@@ -29,7 +29,9 @@
     <div class="carousel-inner">
       @foreach($ultimasNoticias as $ultimaNoticia)
         <div class="carousel-item {{ $loop->first==1 ? 'active': ''}} ">
-          <img src="/imagens/{{ $ultimaNoticia['imagem'] }}" class="d-block w-100" alt="...">
+          <div class="embed-responsive embed-responsive-21by9">
+            <img src="/imagens/{{ $ultimaNoticia['imagem'] }}" class="embed-responsive-item" alt="...">
+          </div>
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ $ultimaNoticia->titulo }}</h5>
             <p>{{$ultimaNoticia->categoria->descricao}} - {{ $ultimaNoticia->data->format('d/m/Y') }}</p>

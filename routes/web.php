@@ -42,3 +42,7 @@ Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/{categoria_id}/{noticia_id?}', [NewsController::class, 'newsCategory'])->name('newsCategory');
 
 Route::get('/venda/novo', [VendaController::class, 'novo']);
+Route::post('/venda/salvar', [VendaController::class, 'salvar'])->name('venda_salvar');
+Route::get('/venda/lista', [VendaController::class, 'lista'])->name('venda_lista');
+Route::get('/venda/excluir/{id}', [VendaController::class, 'excluir']);
+Route::get('/venda/editar/{id}', [VendaController::class, 'editar']);

@@ -10,4 +10,7 @@ class Produto extends Model
   use HasFactory;
   protected $table = "produto";
   public $timestamps = false;
+  protected $casts = [
+        'valor_unitario' => 'decimal:2',
+    ];
 }
