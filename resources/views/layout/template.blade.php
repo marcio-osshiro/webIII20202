@@ -70,6 +70,9 @@
         <a class="nav-link" href="{{ route('venda_lista') }}">Venda</a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="{{ route('usuario_lista') }}">Usuário</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
